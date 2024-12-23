@@ -27,7 +27,18 @@ def create_board():
 
 # fill the board with ships:
 def place_ships(board):
-    pass
+    i = 0
+    while i < ships:
+        row = randint(0, size[0]-1)   # min, max
+        col = randint(0, size[1]-1)
+        # print(row,", ",col,", i:",i)
+        if board[row][col] == "S":
+            continue
+        else:
+            board[row][col] = "S"
+            i += 1
+        
+    return board
 
 # get player inputs
 def get_player_input():
@@ -45,4 +56,6 @@ def game_start_end(u_input):
 def game_play():
     pass
 
-print_board(create_board())
+empty_board = create_board()
+board = place_ships(empty_board)
+print_board(board)
