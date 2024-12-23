@@ -16,11 +16,14 @@ computer_hit = 0
 
 # print the board
 def print_board(board):
-    pass
+    for row in board:
+        print(" ".join(row))
 
 # create a board
 def create_board():
-    pass
+    # create the Board:
+    board = [["~"] * size[1] for x in range(0, size[0])]
+    return board
 
 # fill the board with ships:
 def place_ships(board):
@@ -42,4 +45,4 @@ def game_start_end(u_input):
 def game_play():
     pass
 
-game_start_end("")
+print_board(create_board())
