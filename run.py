@@ -100,8 +100,69 @@ def game_start_end(u_input):
         return False
 
 def game_play():
-    pass
+    global player_hit, computer_hit, ships
+    player_hit = 0
+    computer_hit = 0
+    
+    empty_board = create_board()
+    players_board = place_ships(empty_board)
+    computers_board_invisible = place_ships(empty_board)
+    computers_board = list(empty_board)     # computer's visible board
+    #print("computers_board_invisible:")
+    #print_board(computers_board_invisible)
+    
+    while True:
+        print("Player's Board:")
+        print_board(players_board)
+        print("Computer's Board:")
+        print_board(computers_board)
+        print(f"Your score: {player_hit}")
+        
+        row, col = get_player_input()
+        if row == "q":
+            print("Bye!")
+            break
+        else:
+            pass
+            
+        # check if player has hit a ship:
+        hit_result = check_hit(computers_board_invisible, row-1, col-1)
+        if hit_result == True:
+            print("You hit!")
+            # mark the areas hit
+            computers_board[row-1][col-1] = "X"
+            computers_board_invisible[row-1][col-1] = "X"
+            player_hit += 1
+        elif hit_result == "a":
+            print("They had already shot that spot!")
+        else:
+            print("You missed!")
+            # mark the missed areas
+            computers_board[row-1][col-1] = "."
+            computers_board_invisible[row-1][col-1] = "."
+        if player_hit == ships:
+            print("Congratulations! You have sunk all your ships and won!")
+            #break
+            user_input = input("Enter R to restart the game, or Q to quit: ")
+            response = game_start_end(user_input)
+            if response == False:
+                print("Bye!")
+                break
+        
+        # check if computer has hit a ship:
+        computer_hit_result, players_board = computer_hit_func(players_board)
+        if computer_hit_result == True:
+            print("The computer sank your ship!")
+            computer_hit += 1
+        else:
+            print("The computer missed")
+            
+        if computer_hit == ships:
+            print("The computer has sunk all your ships and won!")
+            user_input = input("Enter R to restart the game, or Q to quit: ")
+            response = game_start_end(user_input)
+            if response == False:
+                print("Bye!")
+                break
 
-empty_board = create_board()
-board = place_ships(empty_board)
-print_board(board)
+game_start_end("")
