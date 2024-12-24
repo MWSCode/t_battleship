@@ -11,7 +11,6 @@ https://stackoverflow.com/questions/6532881/how-to-make-a-copy-of-a-2d-array-in-
 """
 
 from random import randint
-#from copy import deepcopy
 
 # variables:
 ships = 4       # number of ships
@@ -32,14 +31,12 @@ def create_board():
 
 # fill the board with ships:
 def place_ships(board):
-    #board2 = deepcopy(board)    # clone the list instead of using memory reference
     board2 = [ x[:] for x in board ]  # clone the list instead of using memory reference
     
     i = 0
     while i < ships:
         row = randint(0, size[0]-1)   # min, max
         col = randint(0, size[1]-1)
-        # print(row,", ",col,", i:",i)
         if board2[row][col] == "S":
             continue
         else:
@@ -56,7 +53,7 @@ def get_player_input():
             return "q", ""
         try:
             row = int(row)      # accepts only numbers
-        except ValueError: # 
+        except ValueError: 
             print(f"Choose a number from 1 to {size[0]} !: ")
         else:
             if row in range(1, size[0]+1): # 
@@ -107,9 +104,9 @@ def computer_hit_func(board):
             continue
 
 def game_start_end(u_input):
-    if u_input == "q" or u_input == "Q":
+    if u_input == "q" or u_input == "Q":        # quit
         return False
-    elif  u_input == "r" or u_input == "R":
+    elif  u_input == "r" or u_input == "R":     # Restart
         game_play()
     elif  u_input == "":       # for the first run
         print("*********************************************")
@@ -122,7 +119,9 @@ def game_start_end(u_input):
         if user_input == "q" or user_input == "Q":
             return False
         else:
-            game_play()
+            x = game_play()
+            if x == False:
+                return False
     else:
         return False
 
@@ -148,7 +147,8 @@ def game_play():
         row, col = get_player_input()
         if row == "q":
             print("Bye!")
-            break
+            #break
+            return False
         else:
             pass
             
@@ -168,13 +168,12 @@ def game_play():
             computers_board[row-1][col-1] = "."
             computers_board_invisible[row-1][col-1] = "."
         if player_hit == ships:
-            print("Congratulations! You have sunk all your ships and won!")
-            #break
+            print("Congratulations! You have sunk all the ships and won!")
             user_input = input("Enter R to restart the game, or Q to quit: ")
             response = game_start_end(user_input)
             if response == False:
                 print("Bye!")
-                break
+                return False
         
         # check if computer has hit a ship:
         computer_hit_result, players_board = computer_hit_func(players_board)
@@ -190,6 +189,6 @@ def game_play():
             response = game_start_end(user_input)
             if response == False:
                 print("Bye!")
-                break
+                return False
 
 game_start_end("")
