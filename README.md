@@ -1,10 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Welcome-message](https://mwresearch.github.io/merry-birds/doc/ci_logo_small.png)
 
-Welcome,
+# Terminal Battleship
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+This is the classic Battleship game in it’s simplest form, written entirely in python.  
+You can read more about Battleship games here: 
 
-## Reminders
+# Reminders
 
 - Your code must be placed in the `run.py` file
 - Your dependencies must be placed in the `requirements.txt` file
