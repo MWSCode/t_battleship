@@ -79,7 +79,25 @@ def computer_hit_func(board):
     pass
 
 def game_start_end(u_input):
-    print("test")
+    if u_input == "q" or u_input == "Q":
+        return False
+    elif  u_input == "r" or u_input == "R":
+        game_play()
+    elif  u_input == "":       # for the first run
+        print("*********************************************")
+        print("       Welcome to TERMINAL BATTLESHIP        ")
+        print(f"  Each Battlefield has {size[0]} Rows and {size[1]} Columns  ")
+        print(f"         There are {ships} ships to sink           ")
+        print("     Row and column 1 start at top-left      ")
+        print("*********************************************")
+        #user_input = input("Press any key to start the game or Q to quit: ")
+        user_input = input("Enter 1 to start the game, or Q to quit: ")
+        if user_input == "q" or user_input == "Q":
+            return False
+        else:
+            game_play()
+    else:
+        return False
 
 def game_play():
     pass
