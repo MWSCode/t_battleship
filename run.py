@@ -42,7 +42,35 @@ def place_ships(board):
 
 # get player inputs
 def get_player_input():
-    pass
+    while True:
+        row = input(f"Enter ROW (1-{size[0]}) or Q to quit: ")
+        if row == "q":
+            return "q", ""
+        try:
+            row = int(row)      # accepts only numbers
+        except ValueError: # 
+            print(f"Choose a number from 1 to {size[0]} !: ")
+        else:
+            if row in range(1, size[0]+1): # 
+                break
+            else:
+                print("Out of range. Try again.")
+
+    while True:
+        col = input(f"Enter COLUMN (1-{size[1]}) or Q to quit: ")
+        if col == "q":
+            return "q", ""
+        try:
+            col = int(col)
+        except ValueError:
+            print(f"Choose a number from 1 to {size[1]} !: ")
+        else:
+            if col in range(1, size[1]+1): # 
+                break
+            else:
+                print("Out of range. Try again.")
+    
+    return row, col
 
 def check_hit(board, row, col):
     pass
