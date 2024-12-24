@@ -73,7 +73,14 @@ def get_player_input():
     return row, col
 
 def check_hit(board, row, col):
-    pass
+    if board[row][col] == "S":
+        return True
+    elif board[row][col] == "~":
+        return False
+    elif board[row][col] == "X":
+        return "a"
+    elif board[row][col] == ".":
+        return "a"
 
 def computer_hit_func(board):
     pass
