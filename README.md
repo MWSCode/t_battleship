@@ -21,11 +21,15 @@ You can see a running version of this code here: [Terminal Battleship](https://w
 - If you enter the same guess twice, the system will inform you about that.
 - You can modify the board size and the number of ships at the beginning of the code.
 ### Screenshots:
-![Welcome-message](https://mwresearch.github.io/t_battleship/doc/welcome-message.png)
-![Boards](https://mwresearch.github.io/t_battleship/doc/boards.png)
+![Welcome-message](https://mwresearch.github.io/t_battleship/doc/welcome-message.png)  
+The game boards:  
+![Boards](https://mwresearch.github.io/t_battleship/doc/boards.png)  
+Game play:  
 ![Game play](https://mwresearch.github.io/t_battleship/doc/game-play.png)
-![Game play](https://mwresearch.github.io/t_battleship/doc/game-play2.png)
-![Wrong Input](https://mwresearch.github.io/t_battleship/doc/wrong-input.png)
+![Game play](https://mwresearch.github.io/t_battleship/doc/game-play2.png)  
+Wrong input warnings:  
+![Wrong Input](https://mwresearch.github.io/t_battleship/doc/wrong-input.png)  
+Game Won:  
 ![You have won](https://mwresearch.github.io/t_battleship/doc/you-win.png)
 ![PC has won](https://mwresearch.github.io/t_battleship/doc/computer-wins.png)
 
