@@ -83,7 +83,20 @@ def check_hit(board, row, col):
         return "a"
 
 def computer_hit_func(board):
-    pass
+    while True:
+        row = randint(0, size[0]-1)   # min, max
+        col = randint(0, size[1]-1)
+        
+        if board[row][col] == "S":      # when hit
+            board[row][col] = "X"       # mark the area hit
+            return True, board
+        elif board[row][col] == "~":    # when missed
+            board[row][col] = "."       # mark the missed area
+            return False, board
+        elif board[row][col] == ".":    # If the spot has already been hit, repeat the process
+            continue
+        elif board[row][col] == "X":
+            continue
 
 def game_start_end(u_input):
     if u_input == "q" or u_input == "Q":
