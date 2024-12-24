@@ -18,21 +18,22 @@ size = [4, 5]   # board-size: row, column
 player_hit = 0
 computer_hit = 0
 
-# print the board
-def print_board(board):
+
+def print_board(board):     # print the board
     for row in board:
         print(" ".join(row))
 
-# create a board
-def create_board():
+
+def create_board():         # create a board
     # create the Board:
     board = [["~"] * size[1] for x in range(0, size[0])]
     return board
 
-# fill the board with ships:
-def place_ships(board):
-    board2 = [ x[:] for x in board ]  # clone the list instead of using memory reference
-    
+
+def place_ships(board):     # fill the board with ships:
+    # clone the list instead of using memory reference
+    board2 = [x[:] for x in board]
+
     i = 0
     while i < ships:
         row = randint(0, size[0]-1)   # min, max
@@ -42,21 +43,21 @@ def place_ships(board):
         else:
             board2[row][col] = "S"
             i += 1
-        
+
     return board2
 
-# get player inputs
-def get_player_input():
+
+def get_player_input():     # get player inputs
     while True:
         row = input(f"Enter ROW (1-{size[0]}) or Q to quit: ")
         if row == "q":
             return "q", ""
         try:
             row = int(row)      # accepts only numbers
-        except ValueError: 
+        except ValueError:
             print(f"Choose a number from 1 to {size[0]} !: ")
         else:
-            if row in range(1, size[0]+1): # 
+            if row in range(1, size[0]+1):
                 break
             else:
                 print("Out of range. Try again.")
@@ -70,12 +71,13 @@ def get_player_input():
         except ValueError:
             print(f"Choose a number from 1 to {size[1]} !: ")
         else:
-            if col in range(1, size[1]+1): # 
+            if col in range(1, size[1]+1):
                 break
             else:
                 print("Out of range. Try again.")
-    
+
     return row, col
+
 
 def check_hit(board, row, col):
     if board[row][col] == "S":
@@ -87,28 +89,30 @@ def check_hit(board, row, col):
     elif board[row][col] == ".":
         return "a"
 
+
 def computer_hit_func(board):
     while True:
         row = randint(0, size[0]-1)   # min, max
         col = randint(0, size[1]-1)
-        
+
         if board[row][col] == "S":      # when hit
             board[row][col] = "X"       # mark the area hit
             return True, board
         elif board[row][col] == "~":    # when missed
             board[row][col] = "."       # mark the missed area
             return False, board
-        elif board[row][col] == ".":    # If the spot has already been hit, repeat the process
+        elif board[row][col] == ".":    # If spot has already been hit, repeat
             continue
         elif board[row][col] == "X":
             continue
 
+
 def game_start_end(u_input):
     if u_input == "q" or u_input == "Q":        # quit
         return False
-    elif  u_input == "r" or u_input == "R":     # Restart
+    elif u_input == "r" or u_input == "R":     # Restart
         game_play()
-    elif  u_input == "":       # for the first run
+    elif u_input == "":       # for the first run
         print("*********************************************")
         print("       Welcome to TERMINAL BATTLESHIP        ")
         print(f"  Each Battlefield has {size[0]} Rows and {size[1]} Columns  ")
@@ -120,48 +124,46 @@ def game_start_end(u_input):
             return False
         else:
             x = game_play()
-            if x == False:
+            if x is False:
                 return False
     else:
         return False
+
 
 def game_play():
     global player_hit, computer_hit, ships
     player_hit = 0
     computer_hit = 0
-    
+
     empty_board = create_board()
     players_board = place_ships(empty_board)
     computers_board_invisible = place_ships(empty_board)
     computers_board = list(empty_board)     # computer's visible board
-    print("computers_board_invisible:")
-    print_board(computers_board_invisible)
-    
+
     while True:
         print("Player's Board:")
         print_board(players_board)
         print("Computer's Board:")
         print_board(computers_board)
         print(f"Your score: {player_hit}")
-        
+
         row, col = get_player_input()
         if row == "q":
             print("Bye!")
-            #break
             return False
         else:
             pass
-            
+
         # check if player has hit a ship:
         hit_result = check_hit(computers_board_invisible, row-1, col-1)
-        if hit_result == True:
+        if hit_result is True:
             print("You hit!")
             # mark the areas hit
             computers_board[row-1][col-1] = "X"
             computers_board_invisible[row-1][col-1] = "X"
             player_hit += 1
         elif hit_result == "a":
-            print("They had already shot that spot!")
+            print("You had already shot that spot!")
         else:
             print("You missed!")
             # mark the missed areas
@@ -171,24 +173,25 @@ def game_play():
             print("Congratulations! You have sunk all the ships and won!")
             user_input = input("Enter R to restart the game, or Q to quit: ")
             response = game_start_end(user_input)
-            if response == False:
+            if response is False:
                 print("Bye!")
                 return False
-        
+
         # check if computer has hit a ship:
         computer_hit_result, players_board = computer_hit_func(players_board)
-        if computer_hit_result == True:
+        if computer_hit_result is True:
             print("The computer sank your ship!")
             computer_hit += 1
         else:
             print("The computer missed")
-            
+
         if computer_hit == ships:
             print("The computer has sunk all your ships and won!")
             user_input = input("Enter R to restart the game, or Q to quit: ")
             response = game_start_end(user_input)
-            if response == False:
+            if response is False:
                 print("Bye!")
                 return False
+
 
 game_start_end("")
