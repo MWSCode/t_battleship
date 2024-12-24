@@ -2,11 +2,16 @@
 TERMINAL BATTLESHIP v1
 
 help resource links:
-
-
+https://stackoverflow.com/questions/44502482/how-to-create-and-fill-a-list-of-lists-in-a-for-loop
+https://stackoverflow.com/questions/11594605/python-excepting-input-only-if-in-range
+https://stackoverflow.com/questions/32280091/how-to-increment-the-iterator-from-inside-for-loop-in-python-3
+https://www.w3schools.com/python/ref_random_randint.asp
+https://stackoverflow.com/questions/2541865/copying-nested-lists-in-python
+https://stackoverflow.com/questions/6532881/how-to-make-a-copy-of-a-2d-array-in-python
 """
 
 from random import randint
+#from copy import deepcopy
 
 # variables:
 ships = 4       # number of ships
@@ -27,18 +32,21 @@ def create_board():
 
 # fill the board with ships:
 def place_ships(board):
+    #board2 = deepcopy(board)    # clone the list instead of using memory reference
+    board2 = [ x[:] for x in board ]  # clone the list instead of using memory reference
+    
     i = 0
     while i < ships:
         row = randint(0, size[0]-1)   # min, max
         col = randint(0, size[1]-1)
         # print(row,", ",col,", i:",i)
-        if board[row][col] == "S":
+        if board2[row][col] == "S":
             continue
         else:
-            board[row][col] = "S"
+            board2[row][col] = "S"
             i += 1
         
-    return board
+    return board2
 
 # get player inputs
 def get_player_input():
@@ -110,7 +118,6 @@ def game_start_end(u_input):
         print(f"         There are {ships} ships to sink           ")
         print("     Row and column 1 start at top-left      ")
         print("*********************************************")
-        #user_input = input("Press any key to start the game or Q to quit: ")
         user_input = input("Enter 1 to start the game, or Q to quit: ")
         if user_input == "q" or user_input == "Q":
             return False
@@ -128,8 +135,8 @@ def game_play():
     players_board = place_ships(empty_board)
     computers_board_invisible = place_ships(empty_board)
     computers_board = list(empty_board)     # computer's visible board
-    #print("computers_board_invisible:")
-    #print_board(computers_board_invisible)
+    print("computers_board_invisible:")
+    print_board(computers_board_invisible)
     
     while True:
         print("Player's Board:")
