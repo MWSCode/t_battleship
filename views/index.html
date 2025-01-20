@@ -4,10 +4,6 @@
     <div id="terminal"></div>
 
     <script>
-        //self.xterm.setOption('theme', theme)
-        xterm.setOption('fontSize', 20)
-        xterm.setOption('fontWeight', 'bold')
-        
         var term = new Terminal({
             // cols: 80,
             cols: 45,
@@ -29,5 +25,9 @@
         };
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
+
+        term.setOption('fontSize', 20)
+        term.setOption('fontWeight', 'bold')
+        
     </script>
 </body>

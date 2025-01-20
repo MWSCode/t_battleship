@@ -5,7 +5,6 @@ You can read more about Battleship games here: [Battleship (game) - Wikipedia](h
 You can see a running version of this code here: [Terminal Battleship](https://www.online-python.com/yBJVdlf9Iw)
 
 ## How to play:
-
 - In this game you play against the computer. You have to sink the computer’s ships (are actually more like submarines) by guessing a row and column number.  
 - You start first and the computer makes it’s guess after you.  
 - You can see where your ships are placed, indicated by an “S”, but you can’t see where the computer’s ships are.  
@@ -13,13 +12,13 @@ You can see a running version of this code here: [Terminal Battleship](https://w
 - The winner is the player who sinks all the opponent’s battleships first.  
 
 ## Features
-
 - Ships are randomly placed on both the player’s and computer’s board.
 - Input validation:
   - You can’t enter coordinates outside the grid size.
   - You must enter numbers.  
 - If you enter the same guess twice, the system will inform you about that.
 - You can modify the board size and the number of ships at the beginning of the code.
+
 ### Screenshots:
 ![Welcome-message](https://mwresearch.github.io/t_battleship/doc/welcome-message.png)  
 The game boards:  
