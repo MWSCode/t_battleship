@@ -4,8 +4,13 @@
     <div id="terminal"></div>
 
     <script>
+        //self.xterm.setOption('theme', theme)
+        xterm.setOption('fontSize', 20)
+        xterm.setOption('fontWeight', 'bold')
+        
         var term = new Terminal({
-            cols: 80,
+            // cols: 80,
+            cols: 45,
             rows: 24
         });
         term.open(document.getElementById('terminal'));
