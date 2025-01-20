@@ -1,14 +1,15 @@
 <body>
-    <header>
-        <button onclick="window.location.reload()">Run Program</button>
-        <span class="game_title"><img src="battleship.webp" alt="Battleship"></span>
-    </header>
+    <main>
+        <header>
+            <button onclick="window.location.reload()">Run Program</button>
+            <span class="game_title"><img src="battleship.webp" alt="Battleship"></span>
+        </header>
+        
+        <div id="terminal"></div>
+    </main>
     
-    <div id="terminal"></div>
-
     <script>
         var term = new Terminal({
-            // cols: 80,
             cols: 45,
             rows: 24
         });
@@ -42,7 +43,7 @@
                 term.setOption('fontSize', 20);
             }
         }
-        let media_420px = window.matchMedia("(max-width: 420px)")   // Create a MediaQueryList object
+        let media_420px = window.matchMedia("(max-width: 420px)");   // Create a MediaQueryList object
         mQuery_change(media_420px); // Call listener function
         // Attach listener function on state changes
         media_420px.addEventListener("change", function() {
