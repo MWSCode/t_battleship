@@ -1,6 +1,9 @@
 <body>
-    <button onclick="window.location.reload()">Run Program</button>
-    <span>TERMINAL BATTLESHIP v1 :-)</span>
+    <header>
+        <button onclick="window.location.reload()">Run Program</button>
+        <span class="game_title"><img src="battleship.webp" alt="Battleship"></span>
+    </header>
+    
     <div id="terminal"></div>
 
     <script>
@@ -25,9 +28,31 @@
         };
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
+        
 
+        // change Terminal-fontsize
         term.setOption('fontSize', 20);
         term.setOption('fontWeight', 'bold');
-        
+
+        // media-query
+        function mQuery_change(xmedia_420px) {
+            if (media_420px.matches) {
+                term.setOption('fontSize', 14);
+            } else {
+                term.setOption('fontSize', 20);
+            }
+        }
+        let media_420px = window.matchMedia("(max-width: 420px)")   // Create a MediaQueryList object
+        mQuery_change(media_420px); // Call listener function
+        // Attach listener function on state changes
+        media_420px.addEventListener("change", function() {
+            mQuery_change(media_420px);
+        });
+
+        // set background-color
+        term.setOption('theme', {
+            background: '#017bab'
+        });
+
     </script>
 </body>
