@@ -1,4 +1,5 @@
-![Battleship](https://mwresearch.github.io/t_battleship/doc/battleship-teaser.png)  
+![Battleship](https://mwresearch.github.io/t_battleship/doc/battleship-teaser.webp)  
+
 # Terminal Battleship
 
 This is the classic Battleship game in it’s simplest form, written entirely in python.  
