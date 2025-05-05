@@ -1,4 +1,4 @@
-![Battleship](https://mwresearch.github.io/t_battleship/doc/battleship-teaser.webp)  
+![Battleship](https://mwscode.github.io/t_battleship/doc/battleship-teaser.webp)  
 
 # Terminal Battleship
 
@@ -25,20 +25,20 @@ I created a responsive layout so that this game is playable on both mobile devic
   - You must enter numbers.  
 - If you enter the same guess twice, the system will inform you about that.
 - You can modify the board size and the number of ships in run.py at the beginning of the code.
-![variables](https://mwresearch.github.io/t_battleship/doc/initial-vars.png)  
+![variables](https://mwscode.github.io/t_battleship/doc/initial-vars.png)  
 
 ### Screenshots:
-![Welcome-message](https://mwresearch.github.io/t_battleship/doc/welcome-message.png)  
+![Welcome-message](https://mwscode.github.io/t_battleship/doc/welcome-message.png)  
 The game boards:  
-![Boards](https://mwresearch.github.io/t_battleship/doc/boards.png)  
+![Boards](https://mwscode.github.io/t_battleship/doc/boards.png)  
 Game play:  
-![Game play](https://mwresearch.github.io/t_battleship/doc/game-play.png)
-![Game play](https://mwresearch.github.io/t_battleship/doc/game-play2.png)  
+![Game play](https://mwscode.github.io/t_battleship/doc/game-play.png)
+![Game play](https://mwscode.github.io/t_battleship/doc/game-play2.png)  
 (Wrong input) warnings:  
-![Wrong Input](https://mwresearch.github.io/t_battleship/doc/wrong-input.png)  
+![Wrong Input](https://mwscode.github.io/t_battleship/doc/wrong-input.png)  
 Game Won:  
-![You have won](https://mwresearch.github.io/t_battleship/doc/you-win.png)
-![PC has won](https://mwresearch.github.io/t_battleship/doc/computer-wins.png)
+![You have won](https://mwscode.github.io/t_battleship/doc/you-win.png)
+![PC has won](https://mwscode.github.io/t_battleship/doc/computer-wins.png)
 
 ## Future plans
 - Allowing ships larger than 1x1
